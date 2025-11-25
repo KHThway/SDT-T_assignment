@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Smart ID - Campus Smart Access</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <style>
+        .digital-id-container {
+            background: linear-gradient(135deg, #000000, #2D5BFF);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+
+        .qr-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .qr-code {
+            width: 280px;
+            height: 280px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .qr-placeholder {
+            color: black;
+            text-align: center;
+        }
+
+        .qr-timer {
+            position: absolute;
+            top: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #00C851;
+            margin-right: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        .nfc-label {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 30px;
+            background: rgba(255,255,255,0.1);
+            padding: 15px 30px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .student-info {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .student-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .student-id {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="digital-id-container">
+        <button class="back-button" onclick="window.location.href='dashboard.html'">← Back</button>
+        
+        <div class="student-info">
+            <div class="student-name">Kyaw Tun</div>
+            <div class="student-id">STU-2024-001</div>
+        </div>
+
+        <div class="qr-section">
+            <div class="qr-code">
+                <div class="qr-timer" id="qrTimer">Refreshes in: 60s</div>
+                <div class="qr-placeholder">
+                    <div style="font-size: 48px;">📱</div>
+                    <div>Dynamic QR Code</div>
+                    <div style="font-size: 10px; margin-top: 10px; opacity: 0.7;" id="qrData">Loading...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-indicator">
+            <div class="status-dot"></div>
+            <span>Ready to Scan</span>
+        </div>
+
+        <div class="nfc-label">
+            NFC Active - Tap to Enter
+        </div>
+    </div>
+
+    <script src="js/digital-id.js"></script>
+</body>
+</html>

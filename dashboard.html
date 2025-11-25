@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Campus Smart Access</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <h1>Hi, <span id="userName">Kyaw</span> 👋</h1>
+                <p class="welcome-text">Welcome to your smart campus dashboard</p>
+            </div>
+            <div class="header-right">
+                <div class="notification-icon">
+                    🔔
+                    <span class="notification-badge">3</span>
+                </div>
+                <div class="profile-section">
+                    <div class="profile-icon">👤</div>
+                    <div class="profile-menu">
+                        <span id="profileName">Kyaw Tun</span>
+                        <div class="dropdown-content">
+                            <a href="#">Profile Settings</a>
+                            <a href="#" onclick="logout()">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Center Feature - Digital Smart ID -->
+            <section class="center-feature">
+                <div class="smart-id-card" onclick="navigateToDigitalID()">
+                    <div class="card-icon">📱</div>
+                    <h2>Digital Smart ID</h2>
+                    <p>Tap your phone to access facilities</p>
+                    <div class="card-badge">Active</div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <h3>Quick Actions</h3>
+                <div class="actions-grid">
+                    <div class="action-card" onclick="navigateToFacilityBooking()">
+                        <div class="action-icon">🚪</div>
+                        <span class="action-text">Book Facility</span>
+                    </div>
+                    <div class="action-card" onclick="showComingSoon('Shuttle Tracker')">
+                        <div class="action-icon">🚌</div>
+                        <span class="action-text">Shuttle Tracker</span>
+                    </div>
+                    <div class="action-card" onclick="showComingSoon('Library Checkout')">
+                        <div class="action-icon">📚</div>
+                        <span class="action-text">Library Checkout</span>
+                    </div>
+                    <div class="action-card" onclick="showComingSoon('Campus Map')">
+                        <div class="action-icon">🗺️</div>
+                        <span class="action-text">Campus Map</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Activity -->
+            <section class="recent-activity">
+                <div class="section-header">
+                    <h3>Recent Activity</h3>
+                    <button class="view-all-btn">View All</button>
+                </div>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">🚪</div>
+                        <div class="activity-details">
+                            <div class="activity-title">Lab 3 - Accessed</div>
+                            <div class="activity-time">Today, 10:00 AM</div>
+                        </div>
+                        <div class="activity-status success">Success</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">💳</div>
+                        <div class="activity-details">
+                            <div class="activity-title">Cafeteria - Payment</div>
+                            <div class="activity-time">Today, 9:45 AM • RM5.00</div>
+                        </div>
+                        <div class="activity-status success">Paid</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">📚</div>
+                        <div class="activity-details">
+                            <div class="activity-title">Library Access</div>
+                            <div class="activity-time">Yesterday, 3:20 PM</div>
+                        </div>
+                        <div class="activity-status success">Granted</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Coming Soon Modal -->
+    <div id="comingSoonModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('comingSoonModal')">&times;</span>
+            <div class="modal-icon">🚧</div>
+            <h2>Coming Soon!</h2>
+            <p id="comingSoonMessage">This feature is currently under development.</p>
+            <button class="btn-primary" onclick="closeModal('comingSoonModal')">Got it!</button>
+        </div>
+    </div>
+
+    <!-- Success Alert -->
+    <div id="successAlert" class="alert alert-success" style="display: none;">
+        <span class="alert-icon">✅</span>
+        <span class="alert-message"></span>
+        <button class="alert-close" onclick="hideAlert('successAlert')">×</button>
+    </div>
+
+    <!-- Error Alert -->
+    <div id="errorAlert" class="alert alert-error" style="display: none;">
+        <span class="alert-icon">⚠️</span>
+        <span class="alert-message"></span>
+        <button class="alert-close" onclick="hideAlert('errorAlert')">×</button>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

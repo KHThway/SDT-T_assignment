@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Smart Access</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="welcome-screen">
+            <div class="welcome-content">
+                <div class="logo">
+                    <h1>🎓 CampusSmart</h1>
+                    <p>IoT Access System</p>
+                </div>
+                <div class="welcome-message">
+                    <h2>Welcome to Smart Campus Access</h2>
+                    <p>Access facilities, track shuttles, and use your digital ID seamlessly</p>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-primary" onclick="window.location.href='login.html'">
+                        Student Login
+                    </button>
+                    <button class="btn-secondary" onclick="showAdminLogin()">
+                        Admin Portal
+                    </button>
+                </div>
+            </div>
+            <div class="features-preview">
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Digital Smart ID</h3>
+                    <p>Replace physical cards with secure digital identification</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚪</div>
+                    <h3>Facility Booking</h3>
+                    <p>Book and access labs, rooms, and facilities instantly</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚌</div>
+                    <h3>Shuttle Tracker</h3>
+                    <p>Real-time shuttle locations and arrival times</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div id="adminModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAdminModal()">&times;</span>
+            <h2>Admin Portal Login</h2>
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <label for="adminEmail">Admin Email:</label>
+                    <input type="email" id="adminEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">Password:</label>
+                    <input type="password" id="adminPassword" required>
+                </div>
+                <button type="submit" class="btn-primary">Login as Admin</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

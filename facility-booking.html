@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facility Booking - Campus Smart Access</title>
+    <link rel="stylesheet" href="css/facility-booking.css">
+</head>
+<body>
+    <div class="facility-booking-container">
+        <!-- Header -->
+        <header class="booking-header">
+            <button class="back-btn" onclick="window.location.href='dashboard.html'">← Back</button>
+            <h1>Facility Booking</h1>
+            <div class="header-actions">
+                <button class="btn-secondary" onclick="showMyBookings()">My Bookings</button>
+            </div>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search Labs or Discussion Rooms...">
+                <span class="search-icon">🔍</span>
+            </div>
+            <div class="filter-options">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="available">Available</button>
+                <button class="filter-btn" data-filter="labs">Labs</button>
+                <button class="filter-btn" data-filter="rooms">Discussion Rooms</button>
+            </div>
+        </section>
+
+        <!-- Facilities List -->
+        <section class="facilities-section">
+            <h2>Available Facilities</h2>
+            <div class="facilities-list" id="facilitiesList">
+                <!-- Facilities will be loaded here by JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('bookingModal')">&times;</span>
+            <div class="modal-icon">🚪</div>
+            <h2 id="modalFacilityName">Book Facility</h2>
+            <p id="modalFacilityStatus"></p>
+            
+            <div class="booking-options">
+                <label for="bookingDuration">Booking Duration:</label>
+                <select id="bookingDuration">
+                    <option value="30">30 minutes</option>
+                    <option value="60" selected>1 hour</option>
+                    <option value="120">2 hours</option>
+                    <option value="180">3 hours</option>
+                </select>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeModal('bookingModal')">Cancel</button>
+                <button class="btn-confirm" onclick="confirmBooking()">Book Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Confirmed Modal -->
+    <div id="confirmedModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon">✅</div>
+            <h2>Booking Confirmed!</h2>
+            <p id="confirmationMessage">Your Smart ID will now unlock the facility.</p>
+            <div class="modal-actions">
+                <button class="btn-primary" onclick="closeModal('confirmedModal')">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Alert -->
+    <div id="successAlert" class="alert alert-success" style="display: none;">
+        <span class="alert-icon">✅</span>
+        <span class="alert-message"></span>
+        <button class="alert-close" onclick="hideAlert('successAlert')">×</button>
+    </div>
+
+    <!-- Error Alert -->
+    <div id="errorAlert" class="alert alert-error" style="display: none;">
+        <span class="alert-icon">⚠️</span>
+        <span class="alert-message"></span>
+        <button class="alert-close" onclick="hideAlert('errorAlert')">×</button>
+    </div>
+
+    <script src="js/facility-booking.js"></script>
+</body>
+</html>
